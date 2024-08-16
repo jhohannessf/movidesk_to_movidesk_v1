@@ -7,7 +7,7 @@ import os
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from Movidesk import HelpdeskMovidesk
 from From_to import FromTo
-from connection_bd import Database
+from Connection_bd import Database
 import clients_data
 
 warnings.filterwarnings("ignore", category=requests.packages.urllib3.exceptions.InsecureRequestWarning)

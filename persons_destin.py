@@ -14,7 +14,7 @@ warnings.filterwarnings("ignore", category=UserWarning)
 def main():
     from Movidesk import HelpdeskMovidesk
     from From_to import FromTo
-    from connection_bd import Database
+    from Connection_bd import Database
 
     movidesk_destin = HelpdeskMovidesk(clients_data.token_movidesk_destin)
     # movidesk_origin = HelpdeskMovidesk(clients_data.token_movidesk_origin)
