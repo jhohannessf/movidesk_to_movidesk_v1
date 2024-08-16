@@ -1,6 +1,13 @@
 # Created by https://www.toptal.com/developers/gitignore/api/django
 # Edit at https://www.toptal.com/developers/gitignore?templates=django
 
+# Ignorar arquivos específicos
+persons.py
+persons_destin.py
+persons_origin.py
+persons_paralelismo.py
+tickets_origin.py
+
 ### Django ###
 *.log
 *.pot
