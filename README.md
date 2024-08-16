@@ -1,6 +1,7 @@
 # movidesk_to_movidesk
-Este projeto faz a importação de Pessoas entre bases Movidesk usando API - Versão 1.0.0
-A versão 2.0.0 está em andamento e fará a importação de Tickets entre bases Movidesk.
+Versão 1.0.0
+
+Este projeto faz a Migração de pessoas (clientes, agentes e empresas) entre bases Movidesk usando API.
 
 ## Uso
 
