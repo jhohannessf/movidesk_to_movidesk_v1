@@ -1,5 +1,6 @@
 # movidesk_to_movidesk
 Este projeto faz a importação de Pessoas entre bases Movidesk usando API - Versão 1.0.0
+A versão 2.0.0 está em andamento e fará a importação de Tickets entre bases Movidesk.
 
 ## Uso
 
@@ -8,7 +9,7 @@ Este projeto faz a importação de Pessoas entre bases Movidesk usando API - Ver
 * Preencha o arquivo `.env`
 * Executar o arquivo `persons_paralelismo.exe`
 * O Migrador utiliza banco de dados `postgres` para armazenar o historico de migração e os passos executados
-    * Baixar a ferramenta [dbeaver] ou o próprio [https://www.postgresql.org/download/] 
+    * Baixar a ferramenta dbeaver ou o próprio [Postgres](https://www.postgresql.org/download/) 
     * A conexão com o banco deve ser: host="localhost", database="postgres", user="postgres", password="postgres"
     * Tabelas
        - persons - armazena o historico de pessoas enviadas, a coluna `migrated` indica se o registro foi enviado
@@ -19,48 +20,47 @@ Este projeto faz a importação de Pessoas entre bases Movidesk usando API - Ver
 * Logs - Todos os logs de erros são salvos na pasta  /files/log.txt
 
 * versão 2.00" - Em andamento
-       * tickets - armazena o historico de tickets enviados, a coluna `migrated` indica se o registro foi enviado
-       * actions - ações dos tickets que contem imagens enbed no corpo da ação
-       * attachments - anexos dos tickets enviados 
-       * filecache - cache de arquivos que ja foram enviados para a s3 para evitar duplicidade de arquivos
-       * tickets_migration_history - historico de migração
-          * armazena paginação e filtro criado no momento da migração
-          * se o migrador fechar, a ultima query será usada para continuar a migração de onde parou 
-          * obs: para reprocessar do zero, apague os registros da tabela
+  * tickets - armazena o historico de tickets enviados, a coluna `migrated` indica se o registro foi enviado
+  * actions - ações dos tickets que contem imagens enbed no corpo da ação
+  * attachments - anexos dos tickets enviados 
+  * filecache - cache de arquivos que ja foram enviados para a s3 para evitar duplicidade de arquivos
+  * tickets_migration_history - historico de migração
+   * armazena paginação e filtro criado no momento da migração
+   * se o migrador fechar, a ultima query será usada para continuar a migração de onde parou 
+   * obs: para reprocessar do zero, apague os registros da tabela
   
 * Logs - Todos os logs de erros são salvos na pasta  /files/log.txt
 
 
-  ## Steps
+* Steps
 
-* 1 - Migrar pessoas
-* 2 - Migrar tickets (somente na V 2.0.0)
-* 3 - Enviar Anexos (somente na V 2.0.0)
-* 4 - Corrigir imagens enbedadas na descrição da action (valido apenas para migrações executadas no passo 2) (somente na V 2.0.0)
-* 5 - Reenviar pessoas com erros  (valido apenas para migrações executadas no passo 1) 
-* 6 - Reenviar tickets com erros (valido apenas para migrações executadas no passo 2) (somente na V 2.0.0)
-* 7 - Corrigir imagens enbedadas via banco de dados (Busca em tempo real no db do movidesk) (somente na V 2.0.0)
+   * 1 - Migrar pessoas
+   * 2 - Migrar tickets (somente na V 2.0.0)
+   * 3 - Enviar Anexos (somente na V 2.0.0)
+   * 4 - Corrigir imagens enbedadas na descrição da action (valido apenas para migrações executadas no passo 2) (somente na V 2.0.0)
+   * 5 - Reenviar pessoas com erros  (valido apenas para migrações executadas no passo 1) 
+   * 6 - Reenviar tickets com erros (valido apenas para migrações executadas no passo 2) (somente na V 2.0.0)
+   * 7 - Corrigir imagens enbedadas via banco de dados (Busca em tempo real no db do movidesk) (somente na V 2.0.0)
 
 
-  ## .ENV
+ * .ENV
 
 * Parâmetros de origem
   
-database = "migrador_jhow"
-movidesk_url_api = "https://movidesk-api.internal/public/v1/"
-; movidesk_url_api_publica = 'https://api.movidesk.com/public/v1'
-; movidesk_url_api_interna = 'https://localhost:4443/public/v1'
-token_movidesk_origin = "" # Token origem
-token_movidesk_destin = "" # Token Destino
-tenant_id_origin = "" # Tenant Origem
-tenant_id_destin = "" # Tenant Destino
+   * database = "migrador_jhow"
+   * movidesk_url_api = "https://movidesk-api.internal/public/v1/"
+   * token_movidesk_origin = "" # Token origem
+   * token_movidesk_destin = "" # Token Destino
+   * tenant_id_origin = "" # Tenant Origem
+   * tenant_id_destin = "" # Tenant Destino
 
 * Parâmetros de execução
-person_type = 2 # Tipo da pessoa. Pessoa = 1, Empresa = 2, Departamento = 4.
-profile_type = 2 # Tipo do perfil. Agente = 1, Cliente = 2, Agente e Cliente = 3.
-top = 100
-skip = 0
-page = 1
-step = 1 # 1= Migrar pessoas; 2= Migrar tickets ; 5= Remigrar pessoas; 6= Remigrar tickets
+  
+   * person_type = 2 # Tipo da pessoa. Pessoa = 1, Empresa = 2, Departamento = 4.
+   * profile_type = 2 # Tipo do perfil. Agente = 1, Cliente = 2, Agente e Cliente = 3.
+   * top = 100
+   * skip = 0
+   * page = 1
+   * step = 1 # 1= Migrar pessoas; 2= Migrar tickets ; 5= Remigrar pessoas; 6= Remigrar tickets
 
   
