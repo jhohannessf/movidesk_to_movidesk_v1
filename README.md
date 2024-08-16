@@ -19,7 +19,7 @@ A versão 2.0.0 está em andamento e fará a importação de Tickets entre bases
           - obs: diferente dos registros de pessoas, as páginas podem se repetir caso você não altere no arquivo `.env`
 * Logs - Todos os logs de erros são salvos na pasta  /files/log.txt
 
-* versão 2.00" - Em andamento
+* Migrado de Tickets - versão 2.0.0" - (EM ANDAMENTO)
   * tickets - armazena o historico de tickets enviados, a coluna `migrated` indica se o registro foi enviado
   * actions - ações dos tickets que contem imagens enbed no corpo da ação
   * attachments - anexos dos tickets enviados 
@@ -47,7 +47,7 @@ A versão 2.0.0 está em andamento e fará a importação de Tickets entre bases
 
 * Parâmetros de origem
   
-   * database = "migrador_jhow"
+   * database = "" #Informe o nome do banco entre as aspas.
    * movidesk_url_api = "https://movidesk-api.internal/public/v1/"
    * token_movidesk_origin = "" # Token origem
    * token_movidesk_destin = "" # Token Destino
