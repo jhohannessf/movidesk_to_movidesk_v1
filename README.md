@@ -18,17 +18,18 @@ Este projeto faz a importação de Pessoas entre bases Movidesk usando API - Ver
           - obs: diferente dos registros de pessoas, as páginas podem se repetir caso você não altere no arquivo `.env`
 * Logs - Todos os logs de erros são salvos na pasta  /files/log.txt
 
+* versão 2.00" - Em andamento
+       * tickets - armazena o historico de tickets enviados, a coluna `migrated` indica se o registro foi enviado
+       * actions - ações dos tickets que contem imagens enbed no corpo da ação
+       * attachments - anexos dos tickets enviados 
+       * filecache - cache de arquivos que ja foram enviados para a s3 para evitar duplicidade de arquivos
+       * tickets_migration_history - historico de migração
+          * armazena paginação e filtro criado no momento da migração
+          * se o migrador fechar, a ultima query será usada para continuar a migração de onde parou 
+          * obs: para reprocessar do zero, apague os registros da tabela
   
-* versão 2.00" #Em andamento
-       - tickets - armazena o historico de tickets enviados, a coluna `migrated` indica se o registro foi enviado 
-       - actions - ações dos tickets que contem imagens enbed no corpo da ação
-       - attachments - anexos dos tickets enviados 
-       - filecache - cache de arquivos que ja foram enviados para a s3 para evitar duplicidade de arquivos
-       - tickets_migration_history - historico de migração
-          - armazena paginação e filtro criado no momento da migração
-          - se o migrador fechar, a ultima query será usada para continuar a migração de onde parou 
-          - obs: para reprocessar do zero, apague os registros da tabela  
 * Logs - Todos os logs de erros são salvos na pasta  /files/log.txt
+
 
   ## Steps
 
@@ -41,7 +42,7 @@ Este projeto faz a importação de Pessoas entre bases Movidesk usando API - Ver
 * 7 - Corrigir imagens enbedadas via banco de dados (Busca em tempo real no db do movidesk) (somente na V 2.0.0)
 
 
-## .ENV
+  ## .ENV
 
 * Parâmetros de origem
   
