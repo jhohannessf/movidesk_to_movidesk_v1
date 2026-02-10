@@ -4,10 +4,10 @@ Este projeto faz a Migração de pessoas (clientes, agentes e empresas) entre ba
 
 ## Uso
 
-* Baixar a ultima versão [aqui](https://github.com/jhohannesfreitas/movidesk_to_movidesk/releases)
+* Baixar a ultima versão [aqui](https://github.com/jhohannessf/movidesk_to_movidesk_v1)
 * Descompacte o arquivo em qualquer local no computador. Execute na VM ou precisará usar a API Pública.
 * Preencha o arquivo `.env`
-* Executar o arquivo `persons_paralelismo.exe`
+* Executar o arquivo `movigrator_persons.py`
 * O Migrador utiliza banco de dados `postgres` para armazenar o historico de migração e os passos executados
     * Baixar a ferramenta dbeaver ou o próprio [Postgres](https://www.postgresql.org/download/) 
     * A conexão com o banco deve ser: host="localhost", database="postgres", user="postgres", password="postgres"
