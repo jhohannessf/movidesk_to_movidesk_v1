@@ -1,14 +1,27 @@
-# movidesk_to_movidesk
-Versão 1.0.0
+# movidesk_to_movidesk - v 1.0
 
-Este projeto faz a Migração de pessoas (clientes, agentes e empresas) entre bases Movidesk usando API.
+Este projeto faz a Migração de pessoas (clientes, agentes e empresas) entre bases Movidesk usando API. Infelizmente este projeto ficou incompleto e foi descontinuado devido a limitações internas de acesso da própria organização.
 
 ## Uso
 
-* Baixar a ultima versão [aqui](https://github.com/jhohannesfreitas/movidesk_to_movidesk/releases)
-* Descompacte o arquivo em qualquer local no computador. Execute na VM ou precisará usar a API Pública.
-* Preencha o arquivo `.env`
-* Executar o arquivo `persons_paralelismo.exe`
+* Baixar a ultima versão [aqui](https://github.com/jhohannessf/movidesk_to_movidesk_v1)
+* Baixe os arquivos individualmente, clicando no nome do arquivo, após abrir procure uma opção no lado direito superior, chamada "Download raw file".
+* Você vai precisar de uma ferramenta IDE para edição e execução do código 
+* Pode ser o PyCharm ou VS Code. Ambas precisarão de chamado no Jira para a instalação.
+    * Baixar o Pycharm [aqui](https://www.jetbrains.com/pt-br/pycharm/download/?section=windows)
+      * Como instalar e configurar o Pycharm [aqui](https://www.youtube.com/watch?v=EDQGZEsNARg)
+    * Baixe o VS Code [aqui](https://code.visualstudio.com/download)
+      * Como instalar e configurar o VS Code [aqui](https://www.youtube.com/watch?v=Zy3iaMZbPO8)
+* Com a ferramenta instalada e configurada, você precisará abrir o projeto que baixou
+  * No PyCharm, canto superior esquerdo, aperta Alt + \ > File > Open
+    * Após abrir o projeto, você precisará importar todos os pacotes e bibliotecas que estão sendo utilizadas
+      * Abra o terminal (Alt + F12), escreva pip install -r requirements.txt e aperte `enter` 
+        * Aguarde finalizar a instalação por completa
+  * No VS Code, canto superior esquerdo > File > Open File ou aperta Ctrl + O 
+    * Após abrir o projeto, você precisará importar todos os pacotes e bibliotecas que estão sendo utilizadas
+      * Para ler e utilizar o arquivo requirements.txt no VS Code, abra o terminal integrado (Ctrl + ' ou Terminal > Novo Terminal) e execute o comando pip install -r requirements.txt. Isso instalará automaticamente todas as bibliotecas listadas no ambiente virtual ativo.
+* Preencha o arquivo `.env` com os dados de origem e destino
+* Executar o arquivo `movigrator_persons.py`
 * O Migrador utiliza banco de dados `postgres` para armazenar o historico de migração e os passos executados
     * Baixar a ferramenta dbeaver ou o próprio [Postgres](https://www.postgresql.org/download/) 
     * A conexão com o banco deve ser: host="localhost", database="postgres", user="postgres", password="postgres"
